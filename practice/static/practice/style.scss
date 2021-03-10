@@ -1,0 +1,14 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.user-input {
+    background: rgb(177, 252, 255);
+    transition: all 0.3s ease;
+
+    &:focus {
+        transform: scale(1.2);
+    }
+}
