@@ -10,19 +10,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/practice/style.css' %}">
 
-    <title>Register</title>
+    <title>Login</title>
 </head>
 <body>
     <header>
-        <h1>Register</h1>
+        <h1>Login</h1>
     </header>
     <main>
+        {% for message in messages %}
+          <p class="{{message.tags}}-message">{{message}}</p>
+        {% endfor %}
+        
         <form action="" method="POST">
-            {% csrf_token %}
-            <div class="mb-3">
-              <label for="id_username" class="form-label">Username:</label><br/>
-              {{form.username}}
-            </div>
             <div class="mb-3">
               <label for="id_email" class="form-label">Email:</label><br/>
               {{form.email}}
@@ -31,19 +30,8 @@
               <label for="id_password1" class="form-label">Password:</label><br/>
               {{form.password1}}
             </div>
-            <div class="mb-3">
-              <label for="id_password2" class="form-label">Confirm password:</label><br/>
-              {{form.password2}}
-            </div>
-            <input type="submit" class="btn btn-primary" value="Register"/><br/>
-            <ul id="errors">
-            {% for field in form %}
-                {% for error in field.errors %}
-                    <li class="form-field-error">{{error}}</li>
-                {% endfor %}
-            {% endfor %}
-            </ul>
-            <a href="{% url 'practice:login' %}">Already have an account? Sign in</a>
+            <button type="submit" class="btn btn-primary">Log in</button>
+            <a href="{% url 'practice:register' %}">No account yet? Sign up</a>
           </form>
     </main>
     <footer>

@@ -4,11 +4,33 @@
     box-sizing: border-box;
 }
 
+body {
+    background: linear-gradient(90deg, rgb(227, 255, 249), rgb(168, 247, 240));
+}
+
+form {
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .user-input {
-    background: rgb(177, 252, 255);
+    // background: rgb(177, 252, 255);
     transition: all 0.3s ease;
 
     &:focus {
         transform: scale(1.2);
     }
+}
+
+.form-field-error{
+    color: red;
+    font-weight: bold;
+}
+
+.success-message {
+    background: rgb(62, 247, 62);
 }
