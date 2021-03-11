@@ -17,19 +17,20 @@
 <body>
     <header>
       {% for message in messages %}
-        <p class="{{message.tags}}-message">{{message}}</p>
+        <p class="{{message.tags}}-message message">{{message}}</p>
       {% endfor %}  
     </header>
     
     <main>
         <form action="" method="POST">
+          {% csrf_token %}
             <div class="mb-3">
-              <label for="id_email" class="form-label">Email:</label><br/>
-              {{form.email}}
+              <label for="id_username" class="form-label">Username:</label><br/>
+              {{form.username}}
             </div>
             <div class="mb-3">
-              <label for="id_password1" class="form-label">Password:</label><br/>
-              {{form.password1}}
+              <label for="id_password" class="form-label">Password:</label><br/>
+              {{form.password}}
             </div>
             <input type="submit" class="btn btn-warning" value="Log in" /><br/>
             <a href="{% url 'practice:register' %}">No account yet? Sign up</a>

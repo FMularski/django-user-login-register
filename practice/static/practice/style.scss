@@ -52,11 +52,18 @@ input[type='submit'] {
     animation: bounce 0.5s ease;
 }
 
-.success-message {
-    color: rgb(62, 247, 62);
+.message {
     font-weight: bold;
     margin: 2rem;
     animation: bounce .5s ease;
+}
+
+.success-message {
+    color: rgb(62, 247, 62);
+}
+
+.error-message {
+    color: rgb(250, 50, 50);
 }
 
 @keyframes bounce {

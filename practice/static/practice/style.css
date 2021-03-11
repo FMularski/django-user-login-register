@@ -65,12 +65,19 @@ input[type='submit']:hover, input[type='submit']:focus {
           animation: bounce 0.5s ease;
 }
 
-.success-message {
-  color: #3ef73e;
+.message {
   font-weight: bold;
   margin: 2rem;
   -webkit-animation: bounce .5s ease;
           animation: bounce .5s ease;
+}
+
+.success-message {
+  color: #3ef73e;
+}
+
+.error-message {
+  color: #fa3232;
 }
 
 @-webkit-keyframes bounce {
