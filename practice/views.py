@@ -21,4 +21,5 @@ def register(request):
     return render(request, 'practice/register.html', context)
 
 def login(request):
-    return render(request, 'practice/login.html')
+    context = {}
+    return render(request, 'practice/login.html', context)

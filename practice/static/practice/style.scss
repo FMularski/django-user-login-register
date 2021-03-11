@@ -2,10 +2,19 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 body {
-    background: linear-gradient(90deg, rgb(227, 255, 249), rgb(168, 247, 240));
+    background: linear-gradient(90deg, rgb(252, 253, 178), rgb(253, 255, 115));
+}
+
+header, footer {
+    min-height: 10vh;
+}
+
+main {
+    min-height: 80vh;
 }
 
 form {
@@ -15,6 +24,17 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+input[type='submit'] {
+    transition: all 0.3s ease;
+    color: white;
+
+    &:hover, &:focus{
+        animation: bounce 0.5s ease;
+        color: white;
+    }
+
 }
 
 .user-input {
@@ -29,8 +49,30 @@ form {
 .form-field-error{
     color: red;
     font-weight: bold;
+    animation: bounce 0.5s ease;
 }
 
 .success-message {
-    background: rgb(62, 247, 62);
+    color: rgb(62, 247, 62);
+    font-weight: bold;
+    margin: 2rem;
+    animation: bounce .5s ease;
+}
+
+@keyframes bounce {
+    0%{
+        transform: translateY(0);
+    }
+    25%{
+        transform: translateY(-15px);
+    }
+    50%{
+        transform: translateY(0);
+    }
+    75%{
+        transform: translateY(-8px);
+    }
+    100%{
+        transform: translateY(0);
+    }
 }

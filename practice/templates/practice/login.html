@@ -9,18 +9,19 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/practice/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
 
     <title>Login</title>
 </head>
 <body>
     <header>
-        <h1>Login</h1>
+      {% for message in messages %}
+        <p class="{{message.tags}}-message">{{message}}</p>
+      {% endfor %}  
     </header>
+    
     <main>
-        {% for message in messages %}
-          <p class="{{message.tags}}-message">{{message}}</p>
-        {% endfor %}
-        
         <form action="" method="POST">
             <div class="mb-3">
               <label for="id_email" class="form-label">Email:</label><br/>
@@ -30,7 +31,7 @@
               <label for="id_password1" class="form-label">Password:</label><br/>
               {{form.password1}}
             </div>
-            <button type="submit" class="btn btn-primary">Log in</button>
+            <input type="submit" class="btn btn-warning" value="Log in" /><br/>
             <a href="{% url 'practice:register' %}">No account yet? Sign up</a>
           </form>
     </main>

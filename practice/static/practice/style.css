@@ -3,11 +3,20 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 body {
-  background: -webkit-gradient(linear, left top, right top, from(#e3fff9), to(#a8f7f0));
-  background: linear-gradient(90deg, #e3fff9, #a8f7f0);
+  background: -webkit-gradient(linear, left top, right top, from(#fcfdb2), to(#fdff73));
+  background: linear-gradient(90deg, #fcfdb2, #fdff73);
+}
+
+header, footer {
+  min-height: 10vh;
+}
+
+main {
+  min-height: 80vh;
 }
 
 form {
@@ -27,6 +36,18 @@ form {
           align-items: center;
 }
 
+input[type='submit'] {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+input[type='submit']:hover, input[type='submit']:focus {
+  -webkit-animation: bounce 0.5s ease;
+          animation: bounce 0.5s ease;
+  color: white;
+}
+
 .user-input {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -40,9 +61,61 @@ form {
 .form-field-error {
   color: red;
   font-weight: bold;
+  -webkit-animation: bounce 0.5s ease;
+          animation: bounce 0.5s ease;
 }
 
 .success-message {
-  background: #3ef73e;
+  color: #3ef73e;
+  font-weight: bold;
+  margin: 2rem;
+  -webkit-animation: bounce .5s ease;
+          animation: bounce .5s ease;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+  50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  75% {
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+  50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  75% {
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 /*# sourceMappingURL=style.css.map */
