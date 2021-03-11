@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm, UserLoginForm
 from django.http import HttpResponse
 from django.contrib import messages
-from django.contrib.auth import authenticate, login as login_user, logout
-
+from django.contrib.auth import authenticate, login as login_user, logout as logout_user
+from django.contrib.auth.decorators import login_required
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('practice:home')
 
     form = UserRegistrationForm()
 
@@ -23,6 +25,10 @@ def register(request):
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('practice:home')
+
+
     form = UserLoginForm()
 
     if request.method == 'POST':
@@ -44,5 +50,11 @@ def login(request):
     return render(request, 'practice/login.html', context)
 
 
+def logout(request):
+    logout_user(request)
+    return redirect('practice:login')
+
+
+@login_required(login_url='practice:login')
 def home(request):
-    return HttpResponse('home')
+    return render(request, 'practice/home.html')
